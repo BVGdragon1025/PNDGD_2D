@@ -1,6 +1,9 @@
 using TMPro;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class HealthBar : MonoBehaviour
 {
     public HitPoints hitPoints;
@@ -17,9 +20,18 @@ public class HealthBar : MonoBehaviour
         if (character != null)
         {
             meterImage.fillAmount = hitPoints.value / maxHitPoints;
-            hpText.text = "HP:" + (meterImage.fillAmount * 100);
-            
+            hpText.text = "Health: " + (meterImage.fillAmount * 100) + "/"+(maxHitPoints* 10);
+
         }
-        
+        else
+        {
+            meterImage.fillAmount = 0;
+            hpText.text = "Game Over!";
+
+        } 
+       
     }
+
+
+
 }
